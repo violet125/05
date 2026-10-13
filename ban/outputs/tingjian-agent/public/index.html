@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>听见行动 · 生活与办公助手</title><link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#message">跳到问题输入框</a>
+  <header><span class="badge">听见行动</span><h1>把信息，变成下一步。</h1>
+    <p>读图片、理邮件、算表格。先讲重点，再一步一步来。</p></header>
+  <main>
+    <section aria-labelledby="help-title" class="intro">
+      <h2 id="help-title">今天需要什么帮助？</h2>
+      <div class="examples">
+        <button type="button" data-prompt="请读这张菜单，列出50元以内的主食。">读菜单与账单</button>
+        <button type="button" data-prompt="请辨认图片中的接口，按画面视角说明位置，不确定时告诉我。">辨认物品</button>
+        <button type="button" data-prompt="请整理附件邮件的待办、截止日期和来源。">整理邮件</button>
+        <button type="button" data-prompt="请分析CSV的实收金额，按币种汇总并指出需要核查的记录。">分析筹款表</button>
+      </div>
+    </section>
+    <section aria-labelledby="chat-title">
+      <div class="row"><h2 id="chat-title">对话</h2><button id="reset" type="button">新对话</button></div>
+      <div id="conversation" role="log" aria-live="off" aria-label="对话记录">
+        <article class="assistant"><h3>听见行动</h3><p>你好。请发来图片、文字或文件，告诉我想完成什么。</p></article>
+      </div>
+      <p id="status" role="status" aria-live="polite">正在检查服务……</p>
+      <form id="chat-form">
+        <label for="message">你的问题</label>
+        <textarea id="message" name="message" rows="4" maxlength="8000" required placeholder="例如：帮我核对账单上的应付金额和到期日。"></textarea>
+        <label for="attachment">添加图片或文件（可选）</label>
+        <input id="attachment" type="file" accept="image/png,image/jpeg,.txt,.md,.csv" aria-describedby="file-help">
+        <p id="file-help" class="hint">PNG / JPG 最多6MB；UTF-8 文本或CSV最多150KB。暂不支持PDF、Excel文件，可先导出文本或CSV。</p>
+        <div class="row controls"><button id="send" class="primary" type="submit">发送问题</button>
+          <button id="dictate" type="button">语音输入</button>
+          <button id="speak" type="button">朗读最新回答</button><button id="stop" type="button">停止朗读</button></div>
+        <label class="check"><input id="auto-speak" type="checkbox">回答后自动朗读</label>
+      </form>
+    </section>
+    <aside><h2>使用说明</h2><p>发送的问题与附件会交给扣子处理。新对话仅重置本地会话，不删除云端记录。图片不能用于确认道路是否安全通行。</p><p>语音输入与朗读使用浏览器或系统提供的服务，音频可能交由其在线服务处理。点击语音输入后需授予麦克风权限，识别文字可先核对再发送。本版本不自动读取邮箱，不控制摄像头，也不发送邮件。</p></aside>
+  </main><footer>听见行动 · 为更自主的生活与工作而设计</footer>
+</body></html>
